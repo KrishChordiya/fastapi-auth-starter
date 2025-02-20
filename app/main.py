@@ -1,9 +1,11 @@
 from fastapi import FastAPI
-from app.core.database import db, lifespan
-from app.routes import auth
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.routes import auth
+from app.core.database import lifespan
+
 app = FastAPI(lifespan=lifespan)
+
 
 app.add_middleware(
     CORSMiddleware,
